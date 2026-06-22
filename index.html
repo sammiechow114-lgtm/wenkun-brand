@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>世界杯季 · 文坤传媒品牌影像推广</title>
+  <meta name="description" content="2026世界杯季，用一支有冲击力的品牌视频踢出精彩。上海文坤传媒 · 专业影像制作。">
+  <meta property="og:title" content="世界杯季 · 文坤传媒">
+  <meta property="og:description" content="品牌传播，也要踢出世界杯级的精彩">
+  <meta property="og:image" content="assets/hero-opening.jpg">
+  <style>
+    :root {
+      --blue-deep: #0a1628;
+      --blue-dark: #0f2847;
+      --blue-mid: #1a4a8a;
+      --blue-bright: #2563eb;
+      --blue-light: #3b82f6;
+      --blue-panel: #1e5bb5;
+      --white: #ffffff;
+      --text-muted: rgba(255,255,255,0.78);
+      --dot-red: #ff4757;
+      --dot-green: #2ed573;
+      --dot-blue: #5352ed;
+      --dot-yellow: #ffa502;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+      background: var(--blue-deep);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Confetti dots */
+    .confetti {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .confetti.r { background: var(--dot-red); }
+    .confetti.g { background: var(--dot-green); }
+    .confetti.b { background: var(--dot-blue); }
+    .confetti.y { background: var(--dot-yellow); border-radius: 2px; transform: rotate(45deg); }
+
+    /* ===== Hero banner (dark blue) ===== */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(180deg, var(--blue-deep) 0%, var(--blue-dark) 55%, var(--blue-mid) 100%);
+      padding: 48px 24px 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wc-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wc-nav .ball { font-size: 18px; }
+
+    .wc-nav::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    .hero-banner .logo {
+      width: 88px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+
+    .hero-title {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--white);
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero-title .line2 {
+      display: block;
+      margin-top: 4px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.8;
+    }
+
+    /* Wave divider */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      height: 24px;
+      margin-top: -1px;
+      background: var(--blue-bright);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    /* ===== CTA bar (bright blue pill) ===== */
+    .cta-bar-wrap {
+      background: var(--blue-bright);
+      padding: 0 16px 20px;
+    }
+
+    .cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+      border-radius: 16px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .cta-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .cta-bar-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .cta-bar-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      white-space: nowrap;
+      opacity: 0.95;
+    }
+
+    /* ===== Feature grid (medium blue) ===== */
+    .feature-panel {
+      background: linear-gradient(180deg, var(--blue-bright) 0%, var(--blue-panel) 100%);
+      padding: 28px 16px 36px;
+      position: relative;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-icon-wrap {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 72px;
+      margin: 0 auto 8px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      transform: rotate(-3deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .feature-item:nth-child(even) .feature-icon-wrap { transform: rotate(3deg); }
+
+    .feature-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* ===== Content sections ===== */
+    .section-dark {
+      background: var(--blue-dark);
+      padding: 36px 20px;
+      position: relative;
+    }
+
+    .section-mid {
+      background: linear-gradient(180deg, var(--blue-mid) 0%, var(--blue-dark) 100%);
+      padding: 36px 20px;
+      position: relative;
+    }
+
+    .section-bright {
+      background: linear-gradient(180deg, var(--blue-panel) 0%, var(--blue-mid) 100%);
+      padding: 36px 20px;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .section-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    /* Step cards */
+    .step-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--white);
+      color: var(--blue-bright);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .step-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Quote */
+    .quote-box {
+      margin-top: 16px;
+      padding: 18px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      border-left: 4px solid var(--dot-green);
+    }
+
+    .quote-box p {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.8;
+    }
+
+    .quote-box cite {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    /* Pills */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      font-size: 12px;
+      padding: 7px 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 16px 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .stat-box span {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* WeChat */
+    .wechat-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .wechat-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .wechat-card img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+
+    .wechat-name { font-size: 16px; font-weight: 700; }
+    .wechat-id { font-size: 11px; color: var(--text-muted); margin: 6px 0 14px; word-break: break-all; }
+
+    .copy-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--white);
+      color: var(--blue-bright);
+      border: none;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .wechat-hint {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 10px;
+    }
+
+    /* Footer strip */
+    .footer-strip {
+      background: var(--blue-deep);
+      padding: 24px 20px calc(90px + var(--safe-bottom));
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Fixed CTA */
+    .fixed-cta {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      padding: 12px 16px calc(12px + var(--safe-bottom));
+      background: linear-gradient(0deg, var(--blue-deep) 80%, transparent);
+      z-index: 100;
+    }
+
+    .fixed-cta button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+      color: var(--white);
+      border: none;
+      border-radius: 28px;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.5);
+    }
+
+    .copy-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(10,22,40,0.92);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      z-index: 999;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .copy-toast.show { opacity: 1; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero: dark blue + confetti -->
+    <header class="hero-banner">
+      <span class="confetti r" style="width:8px;height:8px;top:12%;left:8%"></span>
+      <span class="confetti g" style="width:6px;height:6px;top:18%;right:12%"></span>
+      <span class="confetti b" style="width:7px;height:7px;top:8%;right:28%"></span>
+      <span class="confetti y" style="width:5px;height:5px;top:22%;left:22%"></span>
+      <span class="confetti r" style="width:5px;height:5px;top:35%;right:8%"></span>
+      <span class="confetti g" style="width:6px;height:6px;top:42%;left:6%"></span>
+      <span class="confetti b" style="width:8px;height:8px;top:55%;right:18%"></span>
+      <span class="confetti y" style="width:4px;height:4px;top:48%;left:35%"></span>
+
+      <div class="wc-nav"><span class="ball">⚽</span> 2026 世界杯</div>
+      <img src="assets/logo-shanghai-wenkun.png" alt="上海文坤" class="logo">
+      <h1 class="hero-title">
+        来文坤传媒
+        <span class="line2">踢出品牌精彩</span>
+      </h1>
+      <p class="hero-sub">世界杯是全球最高舞台<br>你的品牌，也值得一支「世界杯级」影像</p>
+    </header>
+
+    <div class="wave-divider"></div>
+
+    <!-- CTA bar -->
+    <div class="cta-bar-wrap">
+      <div class="cta-bar">
+        <div class="cta-bar-left">
+          <div class="cta-bar-icon">🎬</div>
+          <span>选档期，得专属方案</span>
+        </div>
+        <a href="#contact" class="cta-bar-link">立即咨询 ›</a>
+      </div>
+    </div>
+
+    <!-- Feature grid -->
+    <div class="feature-panel">
+      <span class="confetti r" style="width:6px;height:6px;top:10%;left:5%"></span>
+      <span class="confetti g" style="width:5px;height:5px;top:15%;right:6%"></span>
+      <span class="confetti b" style="width:7px;height:7px;bottom:20%;left:10%"></span>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon-wrap">📋</div>
+          <div class="feature-label">创意策划</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">🎥</div>
+          <div class="feature-label">专业拍摄</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">✨</div>
+          <div class="feature-label">后期包装</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">🚀</div>
+          <div class="feature-label">一键交付</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why now -->
+    <section class="section-dark fade-in">
+      <span class="confetti y" style="width:5px;height:5px;top:12%;right:10%"></span>
+      <h2 class="section-title">世界杯季 · 流量窗口已开</h2>
+      <p class="section-text">
+        全球目光聚焦，情绪高涨、话题不断——这正是品牌发声的黄金时刻。一支有节奏、有冲击力的宣传片，帮你在嘈杂中脱颖而出。
+      </p>
+      <div class="quote-box">
+        <p>「好品牌像好球队：有战术、有配合、有高光时刻。」</p>
+        <cite>— 上海文坤传媒</cite>
+      </div>
+    </section>
+
+    <!-- Game plan -->
+    <section class="section-mid fade-in">
+      <span class="confetti r" style="width:6px;height:6px;top:8%;left:8%"></span>
+      <span class="confetti g" style="width:5px;height:5px;top:20%;right:5%"></span>
+      <h2 class="section-title">我们的战术板</h2>
+      <div class="step-cards">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div>
+            <h3>赛前策划 · 创意脚本</h3>
+            <p>像排兵布阵，找准品牌核心卖点，制定传播策略</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div>
+            <h3>中场执行 · 专业拍摄</h3>
+            <p>8K / 航拍 / 延时，设备与团队全覆盖</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div>
+            <h3>终场绝杀 · 后期包装</h3>
+            <p>剪辑调色、特效包装，多平台版本一键上线</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section-bright fade-in">
+      <span class="confetti b" style="width:7px;height:7px;top:10%;right:12%"></span>
+      <h2 class="section-title">核心业务</h2>
+      <div class="pill-row">
+        <span class="pill">品牌宣传片</span>
+        <span class="pill">活动跟拍</span>
+        <span class="pill">TVC 广告</span>
+        <span class="pill">纪录片</span>
+        <span class="pill">航拍延时</span>
+        <span class="pill">8K 超高清</span>
+        <span class="pill">文旅专题</span>
+        <span class="pill">赛事纪录</span>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><strong>10+</strong><span>年经验</span></div>
+        <div class="stat-box"><strong>8K</strong><span>超高清</span></div>
+        <div class="stat-box"><strong>1对1</strong><span>专属服务</span></div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section-dark fade-in">
+      <h2 class="section-title">冠军级创作团队</h2>
+      <p class="section-text">
+        服务日产、大疆、视觉中国、8K RAW；央视延时摄影大赛一等奖；代表作《巅峰》《东北雪》《藏地》。导演阿裕 · 8K RAW / 视觉中国签约摄影师。
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-mid fade-in">
+      <span class="confetti r" style="width:6px;height:6px;top:5%;left:6%"></span>
+      <span class="confetti g" style="width:5px;height:5px;top:8%;right:8%"></span>
+      <span class="confetti b" style="width:6px;height:6px;bottom:30%;right:4%"></span>
+      <h2 class="section-title">世界杯季 · 预约咨询</h2>
+      <p class="section-text" style="margin-bottom:14px">档期有限，扫码或复制微信号，聊聊你的品牌传播计划。</p>
+      <div class="wechat-grid">
+        <div class="wechat-card">
+          <img src="assets/qr-laochai.jpg" alt="文坤老柴">
+          <div class="wechat-name">文坤老柴</div>
+          <div class="wechat-id">wxid_0vyy045yoi0322</div>
+          <button type="button" class="copy-btn" onclick="copyWechat('wxid_0vyy045yoi0322')">复制微信号</button>
+          <p class="wechat-hint">长按保存二维码 · 微信扫一扫添加</p>
+        </div>
+        <div class="wechat-card">
+          <img src="assets/qr-yi.jpg" alt="怡">
+          <div class="wechat-name">怡</div>
+          <div class="wechat-id">megustadinero</div>
+          <button type="button" class="copy-btn" onclick="copyWechat('megustadinero')">复制微信号</button>
+          <p class="wechat-hint">长按保存二维码 · 微信扫一扫添加</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-strip">
+      <div class="footer-brand">上海文坤传媒</div>
+      <div class="footer-copy">© 让世界认识中国影像</div>
+    </footer>
+  </div>
+
+  <div class="fixed-cta">
+    <button type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">⚽ 世界杯季 · 立即咨询</button>
+  </div>
+
+  <div class="copy-toast" id="toast">微信号已复制</div>
+
+  <script>
+    function copyWechat(id) {
+      const done = () => {
+        document.getElementById('toast').classList.add('show');
+        setTimeout(() => document.getElementById('toast').classList.remove('show'), 2000);
+      };
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(id).then(done).catch(() => fallback(id, done));
+      } else fallback(id, done);
+    }
+    function fallback(id, done) {
+      const ta = document.createElement('textarea');
+      ta.value = id;
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch { alert('请手动添加微信：' + id); }
+      document.body.removeChild(ta);
+    }
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
